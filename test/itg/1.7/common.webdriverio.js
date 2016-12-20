@@ -75,12 +75,15 @@ function initCommands(client) {
 			.call(cb);
 	});
 	
-		
+	client.addCommand('takeScreenshot', function(n){
+	    var date_time = new Date().getTime();
+	    client.saveScreenshot(__dirname + '/screenshots/' + date_time + '_'+n+'.png');
+	});
+
 }
 module.exports = {
     getClient: function () {
         if (client) {
-            console.log("in if part")
             return client;
         } else {
 			if (typeof saucelabs !== 'undefined' && saucelabs != "None"){
@@ -89,7 +92,6 @@ module.exports = {
 					.init()
 					.windowHandleMaximize()			
 			}else{
-			    console.log("in else part : options")
             client = webdriverio
 					.remote(options)
 					.init()
