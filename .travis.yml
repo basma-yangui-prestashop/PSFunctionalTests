@@ -47,11 +47,13 @@ before_script:
   - sleep 25
 
 script:
+  - mkdir screenshots
   - $TRAVIS_BUILD_DIR/node_modules/mocha/bin/mocha index.webdriverio.js -c --URL=localhost --MODULE=$MODULE_TECHNICAL_NAME --SAUCELABS=$SAUCELABS -t 300000
   - curl http://localhost/
 
 after_script:
   - docker logs prestashop
+  - cd ../../.. && chmod 777 bin/upload.sh && ./bin/upload.sh
   - google-chrome --version
 
 after_failure:
