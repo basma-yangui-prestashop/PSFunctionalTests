@@ -6,49 +6,49 @@ var modal_confirm_uninstall_is_visible = false;
 var uninstall_red_validation_is_visible = false;
 var green_validation_is_visible = false;
 
-describe('The Uninstall of a Module', function () {
-    common.initMocha.call(this);
+describe('The Uninstall of a Module', function(){
+	common.initMocha.call(this);
 
-    before(function (done) {
-        this.selector = globals.selector;
-        this.client.call(done);
-    });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
-    after(common.after);
-
-
-    describe('Log in in Back Office', function (done) {
-        it('should log in successfully in BO', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .signinBO()
-                .waitForExist(this.selector.menu, 90000)
-                .call(done);
-        });
-    });
+	before(function(done){
+		this.selector = globals.selector;
+		this.client.call(done);
+	});
+	process.on('uncaughtException', common.take_screenshot);
+	process.on('ReferenceError', common.take_screenshot);
+	after(common.after);
 
 
-    describe('Uninstall module', function (done) {
-        it('should go to the module', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .click(this.selector.modules_menu)
-                .waitForExist(this.selector.modules_installed)
-                .click(this.selector.modules_installed)
-                .waitForExist(this.selector.modules_page_loaded, 90000)
-                .setValue(this.selector.modules_search, module_tech_name)
-                .click(this.selector.modules_search_button)
-                .call(done);
-        });
+	describe('Log in in Back Office', function(done){
+        it('should log in successfully in BO', function(done){
+            global.fctname= this.test.title;
+			this.client
+				.signinBO()
+				.waitForExist(this.selector.menu, 90000)
+				.call(done);
+		});
+	});
 
-        it('should click on uninstall button', function (done) {
-            global.fctname = this.test.title;
-            if (red_validation_is_visible) {
-                done(new Error("Unavailable module"));
-            } else {
-                this.client
-                    .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
+
+	describe('Uninstall module', function(done){
+        it('should go to the module', function(done){
+            global.fctname= this.test.title;
+			this.client
+			    .click(this.selector.modules_menu)
+			    .waitForExist(this.selector.modules_installed)
+				.click(this.selector.modules_installed)
+				.waitForExist(this.selector.modules_page_loaded, 90000)
+				.setValue(this.selector.modules_search, module_tech_name)
+				.click(this.selector.modules_search_button)
+				.call(done);
+		});
+
+		it('should click on uninstall button', function(done){
+		    global.fctname= this.test.title;
+		    if (red_validation_is_visible){
+		        done(new Error("Unavailable module"));
+		    }else{
+		        this.client
+		            .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
                     .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]')
                     .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]', 90000)
                     .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]')
@@ -78,8 +78,8 @@ describe('The Uninstall of a Module', function () {
                     green_validation_is_visible = isVisible;
                 })
                     .call(done);
-            }
-        });
+		    }
+		});
 
         it('should validate the uninstall', function (done) {
             global.fctname = this.test.title;
@@ -95,15 +95,15 @@ describe('The Uninstall of a Module', function () {
                     done();
                 }
             }
-        });
-    });
+		});
+	});
 
-    describe('Log out in Back Office', function (done) {
-        it('should log out successfully in BO', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .signoutBO()
-                .call(done);
-        });
-    });
+	describe('Log out in Back Office', function(done){
+        it('should log out successfully in BO', function(done){
+            global.fctname= this.test.title;
+			this.client
+				.signoutBO()
+				.call(done);
+		});
+	});
 });	
