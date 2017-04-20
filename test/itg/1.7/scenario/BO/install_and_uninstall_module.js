@@ -115,8 +115,7 @@ describe('The Install of a Module and its Uninstall', function(){
             global.fctname = this.test.title;
             if (red_validation_is_visible) {
                 done(new Error("Unavailable module"));
-            }
-            else {
+            } else {
                 if (modal_confirm_uninstall_is_visible) {
                     this.client
                         .click('//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]')
