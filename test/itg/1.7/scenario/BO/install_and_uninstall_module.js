@@ -147,6 +147,7 @@ describe('The Install of a Module and its Uninstall', function(){
                 } else if (green_validation_is_visible) {
                     done();
                 }
+
             }
 		});
 	})

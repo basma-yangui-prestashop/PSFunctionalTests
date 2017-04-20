@@ -94,6 +94,7 @@ describe('The Uninstall of a Module', function(){
                 } else if (green_validation_is_visible) {
                     done();
                 }
+
             }
 		});
 	});
