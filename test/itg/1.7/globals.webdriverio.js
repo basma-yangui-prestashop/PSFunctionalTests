@@ -10,43 +10,42 @@ global.module_tech_name = argv.MODULE;
 global.browser = argv.browser;
 global.saucelabs = argv.SAUCELABS;
 global._projectdir = path.join(__dirname, '..', '..');
-global.product_id=new Date().getTime();
+global.product_id = new Date().getTime();
 global.new_customer_email = 'pub' + date_time + '@prestashop.com';
 
 module.exports = {
     selector: {
-	    //Installation
-	    language:'//*[@id="langList"]',
-	    next_step:'//*[@id="btNext"]',
-	    agree_checkbox:'//*[@id="set_license"]',
-	    test_result_compatibility:'//*[@id="sheet_"]/h3',
-        shop_name:'//*[@id="infosShop"]',
-        country_fo:'//*[@id="infosCountry_chosen"]',
-        country_france:'//*[@id="infosCountry_chosen"]/div/ul/li[2]',
-        first_name:'//*[@id="infosFirstname"]',
-        last_name:'//*[@id="infosName"]',
-        email_address:'//*[@id="infosEmail"]',
-        shop_password:'//*[@id="infosPassword"]',
-        retype_password:'//*[@id="infosPasswordRepeat"]',
-        database_address:'//*[@id="dbServer"]',
-        database_name:'//*[@id="dbName"]',
-        database_login:'//*[@id="dbLogin"]',
-        database_password:'//*[@id="dbPassword"]',
-        database_server_address:'//*[@id="dbServer"]',
-        test_conection:'#btTestDB',
-        dbResultCheck:'//*[@id="dbResultCheck"]',
-        step_success:'[class:"class="process_step success"]',
-        create_file_parameter_step:'//li[@id="process_step_generateSettingsFile" and @class="process_step success"]',
-        create_database_step:'//li[@id="process_step_installDatabase" and @class="process_step success"]',
-        create_default_shop_step:'//li[@id="process_step_installDefaultData" and @class="process_step success"]',
-        create_database_table_step:'//li[@id="process_step_populateDatabase" and @class="process_step success"]',
-        create_shop_informations_step:'//li[@id="process_step_configureShop" and @class="process_step success"]',
-        create_demonstration_data_step:'//li[@id="process_step_installFixtures" and @class="process_step success"]',
-        install_module_step:'//li[@id="process_step_installModules" and @class="process_step success"]',
-        install_addons_modules_step:'//li[@id="process_step_installModulesAddons" and @class="process_step success"]',
-        install_theme_step:'//li[@id="process_step_installTheme" and @class="process_step success"]',
-        finish_step:'//*[@id="install_process_success"]/div[1]/h2',
-
+        //Installation
+        language: '//*[@id="langList"]',
+        next_step: '//*[@id="btNext"]',
+        agree_checkbox: '//*[@id="set_license"]',
+        test_result_compatibility: '//*[@id="sheet_"]/h3',
+        shop_name: '//*[@id="infosShop"]',
+        country_fo: '//*[@id="infosCountry_chosen"]',
+        country_france: '//*[@id="infosCountry_chosen"]/div/ul/li[2]',
+        first_name: '//*[@id="infosFirstname"]',
+        last_name: '//*[@id="infosName"]',
+        email_address: '//*[@id="infosEmail"]',
+        shop_password: '//*[@id="infosPassword"]',
+        retype_password: '//*[@id="infosPasswordRepeat"]',
+        database_address: '//*[@id="dbServer"]',
+        database_name: '//*[@id="dbName"]',
+        database_login: '//*[@id="dbLogin"]',
+        database_password: '//*[@id="dbPassword"]',
+        database_server_address: '//*[@id="dbServer"]',
+        test_conection: '#btTestDB',
+        dbResultCheck: '//*[@id="dbResultCheck"]',
+        step_success: '[class:"class="process_step success"]',
+        create_file_parameter_step: '//li[@id="process_step_generateSettingsFile" and @class="process_step success"]',
+        create_database_step: '//li[@id="process_step_installDatabase" and @class="process_step success"]',
+        create_default_shop_step: '//li[@id="process_step_installDefaultData" and @class="process_step success"]',
+        create_database_table_step: '//li[@id="process_step_populateDatabase" and @class="process_step success"]',
+        create_shop_informations_step: '//li[@id="process_step_configureShop" and @class="process_step success"]',
+        create_demonstration_data_step: '//li[@id="process_step_installFixtures" and @class="process_step success"]',
+        install_module_step: '//li[@id="process_step_installModules" and @class="process_step success"]',
+        install_addons_modules_step: '//li[@id="process_step_installModulesAddons" and @class="process_step success"]',
+        install_theme_step: '//li[@id="process_step_installTheme" and @class="process_step success"]',
+        finish_step: '//*[@id="install_process_success"]/div[1]/h2',
 
         //BO
         login: '#email',
