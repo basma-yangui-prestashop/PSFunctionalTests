@@ -65,11 +65,11 @@ module.exports = {
         product_name: '#form_step1_name_1',
         save_product: '//*[@id="form"]/div[4]/div[2]/div/button[1]',
         catalog_list: '#product_catalog_list',
-        green_validation: '#main-div > div.content-div > div.row > div > div.flash-message-list.alert.alert-success > ul > li',
-        //for 1.7.1.0
-        //green_validation: '#growls > div > div.growl-message',
+        //green_validation: '#main-div > div.content-div > div.row > div > div.flash-message-list.alert.alert-success > ul > li',
+        green_validation: '[class="growl growl-notice growl-medium"]',
         close_green_validation: '.growl-close',
-        red_validation: '#main-div > div.content-div > div > div > div.flash-message-list.alert.alert-danger > ul > li',
+        //red_validation: '#main-div > div.content-div > div > div > div.flash-message-list.alert.alert-danger > ul > li',
+        red_validation: '[class="growl growl-error growl-medium"]',
         summary_button: '[href="#description_short"]',
         summary: 'form_step1_description_short_1_ifr', //not declare than an id because using into function "frame" that not need this information;
         description_button: '[href="#description"]',
@@ -96,6 +96,11 @@ module.exports = {
         modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
         modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
         close_sf_toolbar: '//a[@class="hide-button"]',
+        module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
+        install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
+        uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
+        uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
+        modal_confirm_uninstall : '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 
         //FO
         access_loginFO: 'div.user-info > a',
