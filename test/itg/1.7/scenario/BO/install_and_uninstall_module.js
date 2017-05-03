@@ -60,8 +60,8 @@ describe('The Install of a Module and its Uninstall', function () {
             this.client
                 .setValue(this.selector.modules_search, module_tech_name)
                 .click(this.selector.modules_search_button)
-                .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
-                .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]')
+                .waitForExist(this.selector.module_tech_name, 90000)
+                .click(this.selector.install_module_btn)
                 .pause(2000)
                 .isVisible(this.selector.red_validation).then(function (isVisible) {
                 red_validation_is_visible = isVisible;
@@ -99,15 +99,30 @@ describe('The Install of a Module and its Uninstall', function () {
                     .waitForExist(this.selector.modules_page_loaded, 90000)
                     .setValue(this.selector.modules_search, module_tech_name)
                     .click(this.selector.modules_search_button)
-                    .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]', 90000)
-                    .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]')
-                    .waitForExist('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]', 90000)
-                    .click('//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]')
+                    .waitForExist(this.selector.module_tech_name, 90000)
+                    .click(this.selector.uninstall_module_list)
+                    .waitForExist(this.selector.uninstall_module_btn, 90000)
+                    .click(this.selector.uninstall_module_btn)
                     .pause(2000)
-                    .isVisible('//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]').then(function (isVisible) {
+                    .isVisible(this.selector.modal_confirm_uninstall).then(function (isVisible) {
                     modal_confirm_uninstall_is_visible = isVisible;
                 })
-                    .pause(5000)
+                    .call(done);
+            }
+        });
+
+        it('should check green/red validation', function (done) {
+            global.fctname = this.test.title;
+            if (red_validation_is_visible) {
+                done(new Error("Unavailable module"));
+            }
+            else {
+                if (modal_confirm_uninstall_is_visible) {
+                    this.client
+                        .click(this.selector.modal_confirm_uninstall)
+                }
+                this.client
+                    .pause(3000)
                     .isVisible(this.selector.red_validation).then(function (isVisible) {
                     uninstall_red_validation_is_visible = isVisible;
                 })
@@ -115,30 +130,22 @@ describe('The Install of a Module and its Uninstall', function () {
                     green_validation_is_visible = isVisible;
                 })
                     .call(done);
-
             }
-
         });
 
-        it('should check the uninstall', function (done) {
+        it('should validate the uninstall', function (done) {
             global.fctname = this.test.title;
             if (red_validation_is_visible) {
                 done(new Error("Unavailable module"));
             } else {
-                if (modal_confirm_uninstall_is_visible) {
-                    this.client
-                        .click('//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]')
-                        .call(done);
-                }
                 if (uninstall_red_validation_is_visible) {
                     this.client
                         .getText(this.selector.red_validation).then(function (text) {
                         done(new Error(text));
                     })
                 } else if (green_validation_is_visible) {
-                    this.client.call(done);
+                    done();
                 }
-
             }
         });
     })
