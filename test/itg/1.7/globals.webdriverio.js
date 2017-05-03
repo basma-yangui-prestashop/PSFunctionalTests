@@ -94,6 +94,11 @@ module.exports = {
         modules_installed: '(//div[@class="page-head-tabs"]/a)[2]',
         modules_validate_uninstall: '//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
         close_sf_toolbar: '//a[@class="hide-button"]',
+        module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
+        install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
+        uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
+        uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
+        modal_confirm_uninstall : '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 
         //FO
         access_loginFO: 'div.user-info > a',
