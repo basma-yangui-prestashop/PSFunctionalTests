@@ -78,8 +78,8 @@ describe('The Uninstall of a Module', function () {
                     green_validation_is_visible = isVisible;
                 })
                     .call(done);
-		    }
-		});
+            }
+        });
 
         it('should validate the uninstall', function (done) {
             global.fctname = this.test.title;
@@ -94,7 +94,6 @@ describe('The Uninstall of a Module', function () {
                 } else if (green_validation_is_visible) {
                     done();
                 }
-
             }
         });
     });
