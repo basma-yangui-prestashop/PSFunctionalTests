@@ -157,8 +157,8 @@ describe('The Product Creation', function () {
         it('should close green validation', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.selector.close_green_validation, 90000)
-                .click(this.selector.close_green_validation)
+                .waitForExist(this.selector.close_validation, 90000)
+                .click(this.selector.close_validation)
                 .call(done);
         });
     });
@@ -199,9 +199,9 @@ describe('The Product Creation', function () {
             global.fctname = this.test.title;
             global.picture_url = "/img/p";
             for (var i = 0, len = image_data_id.length; i < len; i++) {
-                picture_url = picture_url + "/" + image_data_id[i];
+                global.picture_url = global.picture_url + "/" + image_data_id[i];
             }
-            picture_url = picture_url + "/" + image_data_id + "-home_default.jpg";
+            global.picture_url = global.picture_url + "/" + image_data_id + "-home_default.jpg";
             this.client.call(done);
         });
     });
