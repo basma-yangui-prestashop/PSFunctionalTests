@@ -20,7 +20,7 @@ while (i < 2) {
 
             htmlFile = htmlFile.replace('<link rel="stylesheet" href="assets/app.css"/>', '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">' + cssFile);
             htmlFile = htmlFile.replace('</body>', jsFile);
-            fs.writeFile("email_sender/report_test_" + version[i] + ".html", htmlFile, function (err) {
+            fs.writeFile("email_sender/test_report_" + version[i] + ".html", htmlFile, function (err) {
 
                 if (err) {
                     return console.log(err);

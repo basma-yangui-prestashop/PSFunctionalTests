@@ -27,36 +27,40 @@ var transporter = nodeMailer.createTransport({
 console.log('Sending Email .....');
 var day = dateFormat("yyyy-mm-dd h:MM:ss");
 
-if ((fs.existsSync("email_sender/report_test_" + prestaVersion[0] + ".html")) && (fs.existsSync("email_sender/report_test_" + prestaVersion[1] + ".html"))) {
+if ((fs.existsSync("email_sender/test_report_" + prestaVersion[0] + ".html")) && (fs.existsSync("email_sender/test_report_" + prestaVersion[1] + ".html"))) {
     transporter.sendMail({
         from: senderEmail, // sender address
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan des tests - ' + day + ' ]', // Subject line
-        html: 'Bonjour,</br>' +
-        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le(s) navigateur(s) " + optionsBrowser16.browser() + " et " + optionsBrowser17.browser() + " sont en pièce jointe.</br> " +
-        '<br>Bien à vous,</br>' +
-        '<br>Equipe QA</br>', // html body
+        html: "Bonjour,</br>" +
+            "</br>" +
+            "<br>Les résultats de l'exécution des tests automatisés <b>(Node.js)</b> sur le(s) navigateur(s) <b>" + optionsBrowser16.browser() + "</b> et <b>" + optionsBrowser17.browser() + "</b> sont en pièce jointe.</br> " +
+            "</br>" +
+            "<br>Bien à vous,</br>" +
+            "<br><i>Equipe QA</i></br>", // html body
         attachments: [
             {
-                path: "email_sender/report_test_" + prestaVersion[0] + ".html" // stream this file,
+                path: "email_sender/test_report_" + prestaVersion[0] + ".html" // stream this file,
             }, {
-                filename: "report_test_" + prestaVersion[1] + ".html",
-                path: "email_sender/report_test_" + prestaVersion[1] + ".html"
+                filename: "test_report_" + prestaVersion[1] + ".html",
+                path: "email_sender/test_report_" + prestaVersion[1] + ".html"
             }
         ]
     });
-} else if (fs.existsSync("email_sender/report_test_" + prestaVersion[0] + ".html")) {
+} else if (fs.existsSync("email_sender/test_report_" + prestaVersion[0] + ".html")) {
     transporter.sendMail({
         from: senderEmail, // sender address
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - ' + day + ' ]', // Subject line
-        html: 'Bonjour,</br>' +
-        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur " + optionsBrowser16.browser() + " sont en pièce jointe.</br> " +
-        '<br>Bien à vous,</br>' +
-        '<br>Equipe QA</br>', // html body
+        html: "Bonjour,</br>" +
+            "</br>" +
+            "<br>Les résultats de l'exécution des tests automatisés <b>(Node.js)</b> sur le navigateur <b>" + optionsBrowser16.browser() + "</b> sont en pièce jointe.</br> " +
+            "</br>" +
+            "<br>Bien à vous,</br>" +
+            "<br><i>Equipe QA</i></br>", // html body
         attachments: [
             {
-                path: "email_sender/report_test_" + prestaVersion[0] + ".html" // stream this file,
+                path: "email_sender/test_report_" + prestaVersion[0] + ".html" // stream this file,
             }
         ]
     });
@@ -65,13 +69,15 @@ if ((fs.existsSync("email_sender/report_test_" + prestaVersion[0] + ".html")) &&
         from: senderEmail, // sender address
         to: recipientEmail, // list of receivers
         subject: '[PrestaShop][Test] Bilan de tests - ' + day + ' ]', // Subject line
-        html: 'Bonjour,</br>' +
-        "<br>Les résultats de l'exécution des tests automatisés (Node.js) sur le navigateur " + optionsBrowser17.browser() + " sont en pièce jointe.</br> " +
-        '<br>Bien à vous,</br>' +
-        '<br>Equipe QA</br>', // html body
+        html: "Bonjour,</br>" +
+            "</br>" +
+            "<br>Les résultats de l'exécution des tests automatisés <b>(Node.js)</b> sur le navigateur <b>" + optionsBrowser17.browser() + "</b> sont en pièce jointe.</br> " +
+            "</br>" +
+            "<br>Bien à vous,</br>" +
+            "<br><i>Equipe QA</i></br>", // html body
         attachments: [
             {
-                path: "email_sender/report_test_" + prestaVersion[1] + ".html" // stream this file,
+                path: "email_sender/test_report_" + prestaVersion[1] + ".html" // stream this file,
             }
         ]
     });
