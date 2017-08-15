@@ -31,7 +31,7 @@ if ((fs.existsSync("email_sender/test_report_" + prestaVersion[0] + ".html")) &&
     transporter.sendMail({
         from: senderEmail, // sender address
         to: recipientEmail, // list of receivers
-        subject: '[PrestaShop][Test] Bilan des tests - ' + day + ' ]', // Subject line
+        subject: '[QA][Test] Bilan des tests - ' + day, // Subject line
         html: "Bonjour,</br>" +
             "</br>" +
             "<br>Les résultats de l'exécution des tests automatisés <b>(Node.js)</b> sur le(s) navigateur(s) <b>" + optionsBrowser16.browser() + "</b> et <b>" + optionsBrowser17.browser() + "</b> sont en pièce jointe.</br> " +
@@ -51,7 +51,7 @@ if ((fs.existsSync("email_sender/test_report_" + prestaVersion[0] + ".html")) &&
     transporter.sendMail({
         from: senderEmail, // sender address
         to: recipientEmail, // list of receivers
-        subject: '[PrestaShop][Test] Bilan de tests - ' + day + ' ]', // Subject line
+        subject: "[QA][Test] Bilan des tests " + prestaVersion[0] + " - " + day, // Subject line
         html: "Bonjour,</br>" +
             "</br>" +
             "<br>Les résultats de l'exécution des tests automatisés <b>(Node.js)</b> sur le navigateur <b>" + optionsBrowser16.browser() + "</b> sont en pièce jointe.</br> " +
@@ -68,7 +68,7 @@ if ((fs.existsSync("email_sender/test_report_" + prestaVersion[0] + ".html")) &&
     transporter.sendMail({
         from: senderEmail, // sender address
         to: recipientEmail, // list of receivers
-        subject: '[PrestaShop][Test] Bilan de tests - ' + day + ' ]', // Subject line
+        subject: "[QA][Test] Bilan des tests " + prestaVersion[1] + " - " + day, // Subject line
         html: "Bonjour,</br>" +
             "</br>" +
             "<br>Les résultats de l'exécution des tests automatisés <b>(Node.js)</b> sur le navigateur <b>" + optionsBrowser17.browser() + "</b> sont en pièce jointe.</br> " +
