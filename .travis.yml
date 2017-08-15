@@ -5,6 +5,7 @@ services:
   - mysql
 
 addons:
+    chrome: stable
     apt:
       packages:
         - postfix
