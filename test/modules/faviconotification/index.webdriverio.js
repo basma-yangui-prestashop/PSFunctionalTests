@@ -20,7 +20,10 @@ describe('Allscenario', function () {
     require('../../common/install_and_uninstall_module.js');
     require('../../common/install_module.js');
 
+    //Test Case N°1 : Check the favicon
     require('./scenario/FO/check_favicon.webdriverio')
+
+    //uninstall module
     require('../../common/uninstall_module.js');
 
 });
