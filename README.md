@@ -11,7 +11,7 @@ This will
 - start a mysql container
 - start a selenium-chrome container
 - start a prestashop container and launch prestashop installation
-- start the tests container and launch the test in /tmp/test/itg/1.7/index.webdriverio.js
+- start the tests container and launch the test in /tmp/test/modules/<module_name>/index.webdriverio.js
 
 Environnement variable can be used to override
 PS_VERSION=1.6|1.7 (Default:1.7)

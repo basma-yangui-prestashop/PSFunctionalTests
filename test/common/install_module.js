@@ -1,7 +1,7 @@
 'use strict';
 var should = require('should');
-var common = require('../../common.webdriverio');
-var globals = require('../../globals.webdriverio.js');
+var common = require('./common.webdriverio');
+var globals = require('./globals.webdriverio.js');
 var green_validation_is_visible = false;
 global.red_validation_is_visible = false;
 
@@ -46,7 +46,7 @@ describe('The Install of a Module', function () {
             }
             else {
                 this.client
-                    .setValue(this.selector.modules_search, module_tech_name)
+                    .setValue(this.selector.modules_search, global.module_tech_name)
                     .click(this.selector.modules_search_button)
                     .call(done);
             }

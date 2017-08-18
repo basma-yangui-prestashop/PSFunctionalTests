@@ -10,8 +10,6 @@ services:
       - "prestashop"
       - "selenium-chrome"
     command: ["/tmp/wait-for-it.sh", "--timeout=120", "--strict", "prestashop:80", "--", "/tmp/runTests.sh"]
-    volumes:
-      - ./screenshots/:/home/test/itg/1.7/screenshots/
     networks:
       - default
 

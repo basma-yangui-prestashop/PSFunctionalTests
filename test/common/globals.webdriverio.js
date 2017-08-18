@@ -6,7 +6,7 @@ var argv = require('minimist')(process.argv.slice(2));
 
 global.date_time = new Date().getTime();
 global.URL = argv.URL;
-global.module_tech_name = argv.MODULE;
+global.module_tech_name = "faviconotification";
 global.saucelabs = argv.SAUCELABS;
 global.selenium_url = argv.SELENIUM;
 global._projectdir = path.join(__dirname, '..', '..');
@@ -98,10 +98,10 @@ module.exports = {
         nbr_module: '[class="module-sorting-search-wording"]',
         close_sf_toolbar: '//a[@class="hide-button"]',
         module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
-        install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
+        install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + global.module_tech_name + '-install"]',
         uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
         uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
-        modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
+        modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + global.module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',
 
         onboarding_popup: '.onboarding-popup',
         onboarding_popup_close_btn: '.onboarding-button-shut-down',
@@ -113,6 +113,8 @@ module.exports = {
         passwordFO: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
         login_btnFO: '//*[@id="login-form"]/footer/button',
         logoutFO: '.logout',
+        favicon_empty_cart: '/html/head/link[1]',
+        favicon_filled_cart: '/html/head/link[1]',
         //create_account: '#email_create',
         create_account_button: '[data-link-action="display-register-form"]',
         create_account_firstname: '[name="firstname"]',
@@ -132,6 +134,7 @@ module.exports = {
         layer_cart_name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
         layer_cart_price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
         layer_cart_quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
+        add_to_cart_button: '//button[@class="btn btn-primary add-to-cart"]',
         layer_cart_command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
         //for 1.7.1.0
         //layer_cart_command_button: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
